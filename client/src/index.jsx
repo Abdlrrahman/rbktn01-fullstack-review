@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Search from './components/Search.jsx';
 import RepoList from './components/RepoList.jsx';
+import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       repos: []
     }
 
@@ -15,12 +16,16 @@ class App extends React.Component {
 
   search (term) {
     console.log(`${term} was searched`);
-    // TODO
+    axios.get(term)
+      .then(res => {
+        const repos = res.data;
+        this.setState(() => { repos });
+      })
   }
 
   render () {
     return (<div>
-      <h1>Github Fetcher</h1>
+      <h1 style={{color: "DeepSkyBlue"}}>Github Fetcher</h1>
       <RepoList repos={this.state.repos}/>
       <Search onSearch={this.search.bind(this)}/>
     </div>)

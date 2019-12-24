@@ -15,15 +15,14 @@ class Search extends React.Component {
   }
 
   search() {
-    // the onSearch doesn't exist.
     this.props.onSearch(this.state.term);
   }
 
   render() {
-    return (<div>
-      <h4>Add more repos!</h4>
+    return (<div style={{color: "LightSkyBlue"}}>
+      <h3>Add more repos!</h3>
       Enter a github username: <input value={this.state.term} onChange={this.onChange}/>
-      <button onClick={this.search}> Add Repos </button>
+      <button onClick={this.search} style={{color: "LightSkyBlue"}}> Add Repos </button>
     </div>)
   }
 }

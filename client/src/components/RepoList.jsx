@@ -1,8 +1,8 @@
 import React from 'react';
 
 const RepoList = (props) => (
-  <div>
-    <h4> Repo List Component </h4>
+  <div style={{color: "LightSkyBlue"}}>
+    <h3> Repo List Component </h3>
     There are {props.repos.length} repos.
   </div>
 )
